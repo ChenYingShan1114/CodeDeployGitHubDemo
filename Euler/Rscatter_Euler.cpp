@@ -1,0 +1,89 @@
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
+// constant
+const double eV = 1.60217662e-19; // J
+const double qe = 1.602176621e-19; // C
+const double eps0 = 8.854187817e-12; // F/m
+const double me = 9.1093837e-31; // kg
+const double pi = 3.1415926535899;
+const double c = 299792458;
+
+// normalization constant
+const double nor_position = 1e-15;
+const double nor_time = nor_position / c;
+const double nor_velocity = c;
+const double nor_charge = qe;
+const double nor_ke = 4 * pi * eps0;
+const double nor_mass = me;
+const double nor_energy = nor_mass * nor_velocity * nor_velocity;
+const double nor_force = nor_charge * nor_charge / nor_ke / nor_position / nor_position;
+
+double nor_const = nor_charge * nor_charge / nor_velocity / nor_velocity / nor_mass / nor_position / nor_ke;
+
+
+// impact parameter
+const double b1 = -7.5 * 1e-15 / nor_position;
+// alpha particle
+int q1 = 2 * qe / nor_charge;
+double m1 = 6.644657230e-27 / nor_mass;
+double E_in = 5 * 1e6 * eV / nor_energy;
+double v_in = sqrt(2 * E_in / m1);
+// golden nucleus
+int q2 = 79 * qe / nor_charge;
+
+const double ke = q1 * q2;
+
+double ax(double x, double y, double vx, double vy, double time){
+    double dist = sqrt(x*x+y*y);
+    return ke / m1 / pow(dist,3) * (x - 0) * nor_const; 
+}
+double ay(double x, double y, double vx, double vy, double time){
+    double dist = sqrt(x*x+y*y);
+    return ke / m1 / pow(dist,3) * (y - 0) * nor_const; 
+}
+
+int main(){
+    double ini_x = -1e-12 / nor_position;
+    double total_time = 2 * abs(ini_x) / v_in; // unit: nor_time  
+    int steps = 200;
+    double dt = total_time / steps; 
+    double vx[steps+1], vy[steps+1], x[steps+1], y[steps+1], t_now[steps+1];
+    vx[0] = v_in; vy[0] = 0; x[0] = ini_x; y[0] = b1, t_now[0] = 0;
+  
+    for (int i = 1; i <= steps; i++){
+        vx[i] = vx[i-1] + dt * ax(x[i-1], y[i-1], vx[i-1], vy[i-1], t_now[i-1]);
+        vy[i] = vy[i-1] + dt * ay(x[i-1], y[i-1], vx[i-1], vy[i-1], t_now[i-1]);
+         x[i] =  x[i-1] + dt * vx[i];
+         y[i] =  y[i-1] + dt * vy[i];
+        t_now[i] = t_now[i-1] + dt;
+    }
+
+    cout << "diagnosis degree: " << atan(vy[steps-1] * nor_velocity / vx[steps-1] / nor_velocity) / pi * 180;
+    cout << " " << 2 * atan(2 * q1 * q2 * qe * qe / m1 / nor_mass / v_in / v_in / nor_velocity / nor_velocity / nor_ke / 2 / b1 / nor_position) / pi * 180;
+    cout << endl;
+    double p0 = 2 * q1 * q2 * qe * qe / m1 / nor_mass / v_in / v_in / nor_velocity / nor_velocity / nor_ke;
+    cout << "diagnosis energy: " << v_in * v_in << " " << vx[steps-1] * vx[steps-1] + vy[steps-1] * vy[steps-1] << endl;
+    if (p0 > b1 * nor_position){
+        cout << "reflect" << endl;
+    }
+    else{
+        cout << "go through" << endl;
+    }
+
+    std::ofstream ofs;
+    ofs.open("output.txt");
+    for (int i = 0; i <= steps; i++){
+        ofs << x[i] * nor_position << "," << y[i] * nor_position << endl;
+    }
+
+}
+
+
+
+
+
+
+
