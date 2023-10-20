@@ -40,3 +40,4 @@ After substituting the normalization conversion formula, we mainly solve the fol
 The theoretical solution of Rutherford scattering is $\tan{\frac{\varphi}{2}}=\frac{p_0}{2p}$ where $p_0=\frac{1}{4\pi\epsilon_0}\frac{2qq_0}{mv_0^2}$ means the position where all kinetic energy converted into potential energy.
 
 ## Simulation result
+[image](https://github.com/ChenYingShan1114/Rutherford-Scattering/blob/main/RKa/Rutherford_scattering_RKa.png)
