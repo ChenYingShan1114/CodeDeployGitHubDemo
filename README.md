@@ -19,16 +19,24 @@ In this system, the magnitude of those physical quantities are very different. T
 ## Governing equations
 
 The Rutherford scattering use Coulomb force to simulate the motion of alpha particle. Therefore, the equation of motion of alpha particle is
-$$
+```math
 \vec{F}=\frac{q_{\alpha}q_{Au}}{4\pi \epsilon_0} \frac{\vec{r}}{|r^3|}=m_{\alpha}\frac{d\vec{v}}{dt}.
-$$
+```
 After substituting the normalization conversion formula, we mainly solve the following four equations in the code
-$$
-\frac{d \widetilde{v}_x}{d\widetilde{t}}= \frac{q_e^2}{10^{-15}\times4\pi\epsilon_0m_ec^2} \widetilde{q}_{\alpha} \widetilde{q}_{Au} \frac{1}{\widetilde{m}_{\alpha}}\frac{\widetilde{x}}{(\widetilde{x}^2+\widetilde{y}^2)^{1.5}} \\
-\frac{d \widetilde{v}_y}{d\widetilde{t}}= \frac{q_e^2}{10^{-15}\times4\pi\epsilon_0m_ec^2} \widetilde{q}_{\alpha} \widetilde{q}_{Au} \frac{1}{\widetilde{m}_{\alpha}}\frac{\widetilde{y}}{(\widetilde{x}^2+\widetilde{y}^2)^{1.5}} \\
-\frac{d \widetilde{x}}{d\widetilde{t}}= \widetilde{v}_x \\
+```math
+\frac{d \widetilde{v}_x}{d\widetilde{t}}= \frac{q_e^2}{10^{-15}\times4\pi\epsilon_0m_ec^2} \widetilde{q}_{\alpha} \widetilde{q}_{Au} \frac{1}{\widetilde{m}_{\alpha}}\frac{\widetilde{x}}{(\widetilde{x}^2+\widetilde{y}^2)^{1.5}}
+```
+```math
+\frac{d \widetilde{v}_y}{d\widetilde{t}}= \frac{q_e^2}{10^{-15}\times4\pi\epsilon_0m_ec^2} \widetilde{q}_{\alpha} \widetilde{q}_{Au} \frac{1}{\widetilde{m}_{\alpha}}\frac{\widetilde{y}}{(\widetilde{x}^2+\widetilde{y}^2)^{1.5}}
+```
+```math
+\frac{d \widetilde{x}}{d\widetilde{t}}= \widetilde{v}_x
+```
+```math
 \frac{d \widetilde{y}}{d\widetilde{t}}= \widetilde{v}_y
-$$
+```
 ## Theoritical solution
 
-You can delete the current file by clicking the **Remove** button in the file explorer. The file will be moved into the **Trash** folder and automatically deleted after 7 days of inactivity.
+The theoretical solution of Rutherford scattering is $\tan{\frac{\varphi}{2}}=\frac{p_0}{2p}$ where $p_0=\frac{1}{4\pi\epsilon_0}\frac{2qq_0}{mv_0^2}$ means the position where all kinetic energy converted into potential energy.
+
+## Simulation result
