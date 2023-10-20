@@ -13,9 +13,9 @@ I simulate an 5-MeV alpha particle  $\left(\mathrm{^4_2He}\right)$ striking a go
 ## Normalization constant
 
 In this system, the magnitude of those physical quantities are very different. Therefore, I do the normalization to all parameters to reduce the truncation error. The following is the normalization conversion formula.
-$$
+```math
 \widetilde{x}=\frac{x}{10^{-15}}, \widetilde{t}=\frac{ct}{10^{-15}} , \widetilde{v}=\frac{v}{c} , \widetilde{q}=\frac{q}{q_e} ,\\ \widetilde{m}=\frac{m}{m_e} ,\widetilde{4\pi \epsilon_0}=\frac{4\pi \epsilon_0}{4\pi \epsilon_0} = 1, \widetilde{E}=\frac{E}{m_e c^2}, \widetilde{F}=\frac{(10^{-15})^2 \times 4\pi \epsilon_0 F}{q_e^2} \\
-$$
+```
 ## Governing equations
 
 The Rutherford scattering use Coulomb force to simulate the motion of alpha particle. Therefore, the equation of motion of alpha particle is
