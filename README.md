@@ -38,7 +38,7 @@ After substituting the normalization conversion formulas, the following four equ
 ## Theoritical solution
 
 The theoretical solution of Rutherford scattering is $\tan{\frac{\varphi}{2}}=\frac{p_0}{2p}$, where $p_0=\frac{1}{4\pi\epsilon_0}\frac{2qq_0}{mv_0^2}$ means the position where all kinetic energy converted into potential energy.
-![Image](https://github.com/ChenYingShan1114/Rutherford-Scattering/blob/main/Rutherford_scattering.png)
+<div align=center><img width="220" height="140" src="https://github.com/ChenYingShan1114/Rutherford-Scattering/blob/main/Rutherford_scattering.png"/></div>
 
 ## Simulation result
 The following figure is the simulation result of adaptive Runge-Kutta method.
