@@ -57,10 +57,9 @@ for i in range(len(name_list)):
 
 ax1.plot(0,0,'o', markersize=5, color='goldenrod')
 ax1.text(0.03e-13,0.03e-13,"$\mathrm{Au^{+79}}$",fontsize=12,color='goldenrod')
-#plt.plot(x1[::50],y1[::50],'.',markersize=5,label='RKa')
-ax1.set_xlabel("x")
-ax1.set_ylabel("y")
-ax1.set_title("Rutherford scattering simulated by fourth-order Runge-Kutta method \n under different impact parameters")
+ax1.set_xlabel('$x$ $\mathrm{(m)}$')
+ax1.set_ylabel('$y$ $\mathrm{(m)}$')
+ax1.set_title('Rutherford scattering simulated by fourth-order Runge-Kutta method \n under different impact parameters')
 ax1.set_ylim(-0.2e-12,0.2e-12)
 ax1.set_xlim(-0.15e-12,0.15e-12)
 ax1.legend()
