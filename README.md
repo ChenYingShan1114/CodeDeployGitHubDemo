@@ -1,6 +1,9 @@
 # Rutherford Scattering
 In Rutherford scattering, and alpha particle is deflected as it passes near the gold nuclei of a heavy atom. It used this experiment to prove that the plum pudding model is wrong. In this file, I use numerical method to simulate the Coulomb force between alpha particle and gold ion, and compare the simulation result with theoritical solution.
 
+## Reference
+A. L. Garcia, "Numerical Methods for Physics": \
+    Chapter 3 Ordinary Differential Equations II: Advanced Methods
 
 ## Folders
 
